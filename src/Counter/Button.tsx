@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 import {Button} from "@material-ui/core";
 
 type ButtonProps = {
@@ -21,7 +21,7 @@ function Key(props: ButtonProps) {
     }
 
     return (
-        <div>
+        <div className={'Buttons'}>
             <Button onClick={props.increasingTheValue} variant="contained" color="primary" style={incStyle}>
                 inc
             </Button>

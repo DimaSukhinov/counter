@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 
 export type FieldType = {
     value: number
@@ -7,7 +7,7 @@ export type FieldType = {
 
 function Display(props: FieldType) {
     return (
-        <div className="Field">
+        <div className="Display">
             {props.value}
         </div>
     );

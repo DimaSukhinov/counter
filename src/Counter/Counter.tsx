@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 import Display from "./Display";
 import Key from "./Button";
 
@@ -11,7 +11,7 @@ type CounterType = {
 
 function Counter(props: CounterType) {
     return (
-        <div className="App">
+        <div className="Counter">
             <Display value={props.value}/>
             <Key increasingTheValue={props.increasingTheValue} resetValue={props.resetValue} value={props.value}/>
         </div>

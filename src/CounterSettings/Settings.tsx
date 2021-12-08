@@ -3,10 +3,11 @@ import '../App.css';
 import SettingsButton from "./SettingsButton";
 
 type SettingsType = {
+    setValue: any
+    maxValue: any
     setMaxValue: any
+    startValue: any
     setStartValue: any
-    maxValue: number
-    startValue: number
 }
 
 function Settings(props: SettingsType) {
@@ -19,11 +20,18 @@ function Settings(props: SettingsType) {
     }
 
     const onChangeMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
-        props.setMaxValue(e.currentTarget.value);
+        let stringCurrentValue = e.currentTarget.value
+        let numCurrentValueOfMaxValue = Number(stringCurrentValue)
+
+        props.setMaxValue(numCurrentValueOfMaxValue)
     };
 
     const onChangeStartValue = (e: ChangeEvent<HTMLInputElement>) => {
-        props.setStartValue(e.currentTarget.value);
+        let stringCurrentValue = e.currentTarget.value
+        let numCurrentValueOfStartValue = Number(stringCurrentValue)
+
+        props.setStartValue(numCurrentValueOfStartValue)
+        props.setValue(numCurrentValueOfStartValue)
     };
 
     return (

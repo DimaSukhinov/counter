@@ -1,15 +1,32 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import Counter from "./Counter/Counter";
 import Settings from "./CounterSettings/Settings";
 
 function App() {
 
-    let [startValue, setStartValue] = useState<number>(2)
-    let [value, setValue] = useState(startValue)
-    let [maxValue, setMaxValue] = useState<number>(5)
+    let [value, setValue] = useState(0)
+    let [maxValue, setMaxValue] = useState(0)
+    let [startValue, setStartValue] = useState(0)
 
-    const increasingTheValue = () => {
+    useEffect(() => {
+        let valueAsString = localStorage.getItem('value')
+        let maxValueAsString = localStorage.getItem('maxValue')
+        let startValueAsString = localStorage.getItem('startValue')
+        if(maxValueAsString && valueAsString && startValueAsString){
+            setValue(JSON.parse(valueAsString))
+            setMaxValue(JSON.parse(maxValueAsString))
+            setStartValue(JSON.parse(startValueAsString))
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('value', JSON.stringify(value))
+        localStorage.setItem('maxValue', JSON.stringify(maxValue))
+        localStorage.setItem('startValue', JSON.stringify(startValue))
+    }, [value, maxValue, startValue])
+
+    const incValue = () => {
         if (value < maxValue) {
             setValue(value + 1)
         }
@@ -22,14 +39,15 @@ function App() {
     return (
         <div className={'App'}>
             <Settings
-                setMaxValue={setMaxValue}
-                setStartValue={setStartValue}
+                setValue={setValue}
                 maxValue={maxValue}
+                setMaxValue={setMaxValue}
                 startValue={startValue}
+                setStartValue={setStartValue}
             />
             <Counter
                 value={value}
-                increasingTheValue={increasingTheValue}
+                increasingTheValue={incValue}
                 resetValue={resetValue}
             />
         </div>

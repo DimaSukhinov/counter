@@ -36,6 +36,10 @@ function App() {
         setValue(0)
     }
 
+    const changeCounter = () => {
+        setValue(startValue)
+    }
+
     return (
         <div className={'App'}>
             <Settings
@@ -44,6 +48,7 @@ function App() {
                 setMaxValue={setMaxValue}
                 startValue={startValue}
                 setStartValue={setStartValue}
+                changeCounter={changeCounter}
             />
             <Counter
                 value={value}

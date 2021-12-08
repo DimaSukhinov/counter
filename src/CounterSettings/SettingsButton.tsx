@@ -3,7 +3,7 @@ import '../App.css';
 import {Button} from "@material-ui/core";
 
 type SettingButtonType = {
-
+    changeCounter: any
 }
 
 function SettingsButton(props: SettingButtonType) {
@@ -12,13 +12,9 @@ function SettingsButton(props: SettingButtonType) {
         margin: '20px',
     }
 
-    const onClick = () => {
-
-    }
-
     return (
         <div className={'Buttons'}>
-            <Button onClick={onClick} variant="contained" color="primary" style={setStyle}>
+            <Button onClick={props.changeCounter} variant="contained" color="primary" style={setStyle}>
                 set
             </Button>
         </div>

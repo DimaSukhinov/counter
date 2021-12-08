@@ -8,6 +8,7 @@ type SettingsType = {
     setMaxValue: any
     startValue: any
     setStartValue: any
+    changeCounter: any
 }
 
 function Settings(props: SettingsType) {
@@ -20,18 +21,15 @@ function Settings(props: SettingsType) {
     }
 
     const onChangeMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
-        let stringCurrentValue = e.currentTarget.value
-        let numCurrentValueOfMaxValue = Number(stringCurrentValue)
+        let stringCurrentValueOfMaxValue = e.currentTarget.value
 
-        props.setMaxValue(numCurrentValueOfMaxValue)
+        props.setMaxValue(+stringCurrentValueOfMaxValue)
     };
 
     const onChangeStartValue = (e: ChangeEvent<HTMLInputElement>) => {
-        let stringCurrentValue = e.currentTarget.value
-        let numCurrentValueOfStartValue = Number(stringCurrentValue)
+        let stringCurrentValueOfStartValue = e.currentTarget.value
 
-        props.setStartValue(numCurrentValueOfStartValue)
-        props.setValue(numCurrentValueOfStartValue)
+        props.setStartValue(+stringCurrentValueOfStartValue)
     };
 
     return (
@@ -46,7 +44,7 @@ function Settings(props: SettingsType) {
                     <input type="number" style={textFieldStyle} value={props.startValue} onChange={onChangeStartValue}/>
                 </div>
             </div>
-            <SettingsButton />
+            <SettingsButton changeCounter={props.changeCounter}/>
         </div>
     );
 }

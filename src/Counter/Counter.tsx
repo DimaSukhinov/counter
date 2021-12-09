@@ -7,13 +7,18 @@ type CounterType = {
     value: number
     increasingTheValue: () => void
     resetValue: () => void
+    maxValue: number
 }
 
 function Counter(props: CounterType) {
     return (
         <div className="Counter">
             <Display value={props.value}/>
-            <Key increasingTheValue={props.increasingTheValue} resetValue={props.resetValue} value={props.value}/>
+            <Key increasingTheValue={props.increasingTheValue}
+                 resetValue={props.resetValue}
+                 maxValue={props.maxValue}
+                 value={props.value}
+            />
         </div>
     );
 }

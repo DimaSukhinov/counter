@@ -5,6 +5,7 @@ import {Button} from "@material-ui/core";
 type ButtonProps = {
     increasingTheValue: () => void
     resetValue: () => void
+    maxValue: number
     value: number
 }
 
@@ -12,12 +13,12 @@ function Key(props: ButtonProps) {
 
     const incStyle = {
         margin: '20px',
-        opacity: props.value === 5 ? '0.5' : '',
+        opacity: props.value === props.maxValue ? '0.5' : ''
     }
 
     const resetStyle = {
         margin: '20px',
-        opacity: props.value === 0 ? '0.5' : '',
+        opacity: props.value === 0 ? '0.5' : ''
     }
 
     return (

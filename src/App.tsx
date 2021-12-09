@@ -37,7 +37,9 @@ function App() {
     }
 
     const changeCounter = () => {
-        setValue(startValue)
+        if(startValue < maxValue) {
+            setValue(startValue)
+        }
     }
 
     return (
@@ -54,6 +56,7 @@ function App() {
                 value={value}
                 increasingTheValue={incValue}
                 resetValue={resetValue}
+                maxValue={maxValue}
             />
         </div>
     );

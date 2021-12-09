@@ -4,11 +4,11 @@ import SettingsButton from "./SettingsButton";
 
 type SettingsType = {
     setValue: any
-    maxValue: any
+    maxValue: number
     setMaxValue: any
-    startValue: any
+    startValue: number
     setStartValue: any
-    changeCounter: any
+    changeCounter: () => void
 }
 
 function Settings(props: SettingsType) {
@@ -44,7 +44,7 @@ function Settings(props: SettingsType) {
                     <input type="number" style={textFieldStyle} value={props.startValue} onChange={onChangeStartValue}/>
                 </div>
             </div>
-            <SettingsButton changeCounter={props.changeCounter}/>
+            <SettingsButton changeCounter={props.changeCounter} maxValue={props.maxValue} startValue={props.startValue}/>
         </div>
     );
 }

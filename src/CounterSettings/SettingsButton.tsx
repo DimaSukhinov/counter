@@ -3,13 +3,16 @@ import '../App.css';
 import {Button} from "@material-ui/core";
 
 type SettingButtonType = {
-    changeCounter: any
+    changeCounter: () => void
+    maxValue: number
+    startValue: number
 }
 
 function SettingsButton(props: SettingButtonType) {
 
     const setStyle = {
         margin: '20px',
+        opacity: props.maxValue <= props.startValue ? '0.5' : ''
     }
 
     return (
